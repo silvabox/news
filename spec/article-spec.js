@@ -3,3 +3,5 @@ function testArticleReturnsText() {
 
   assert.isTrue(article.returnText() === "News Story")
 }
+
+testArticleReturnsText();
