@@ -19,5 +19,5 @@
   }
 
 
-exports.ArticleListView = ArticleListView;
+  exports.ArticleListView = ArticleListView;
 })(this);
