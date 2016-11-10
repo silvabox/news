@@ -1,11 +1,7 @@
-list = new List();
 articleGetter = new ArticleGetter();
+list = new List(articleGetter);
 
-console.log(articleGetter.getArticle().returnText());
 
-list.addArticle(articleGetter.getArticle().returnText())
-list.addArticle("Trump wins election")
-list.addArticle("Winter is coming")
 
 
 

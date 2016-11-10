@@ -1,11 +1,12 @@
 (function(exports) {
-  function Article(text){
-    this.text = text
-
+  function Article(title, articleUrl, body){
+    this.body = body;
+    this.title= title;
+    this.articleUrl = articleUrl
   };
 
   Article.prototype.returnText = function () {
-    return this.text
+    return this.title + " " + this.articleUrl
   };
 
   exports.Article = Article;
