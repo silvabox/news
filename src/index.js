@@ -1,6 +1,5 @@
-list = new List();
-list.addArticle("Trump wins election")
-list.addArticle("Winter is coming")
+articleGetter = new ArticleGetter();
+list = new List(articleGetter);
 
 articleController = new ArticleController(list);
 articleController.insertHTML();
