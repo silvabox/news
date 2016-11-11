@@ -1,8 +1,8 @@
 (function(exports) {
 
-  function List() {
+  function List(articleGetter) {
     var article;
-    this.listArray = []
+    this.listArray = articleGetter.getArticles();
   };
 
   List.prototype.addArticle = function(text) {
