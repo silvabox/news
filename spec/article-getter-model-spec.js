@@ -8,8 +8,10 @@ function testGetterModel() {
   articlecontroller = new ArticleController(list);
   appdiv = document.createElement("div");
   appdiv.id = "app";
+  document.body.appendChild(appdiv)
   articlecontroller.insertHTML();
-  modifiedelement = getElementById('app').innerHTML;
+  modifiedelement = document.getElementById('app').innerHTML;
+  console.log(document)
   assert.isTrue(modifiedelement === '<ul><li><div>new story</div></li></ul>' )
 
 }
