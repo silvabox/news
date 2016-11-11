@@ -1,13 +1,8 @@
 function testListsArticles() {
-  articlegetter = new ArticleGetter();
-  newarticle = new Article ('News Story', "http://url")
-  articlegetter.getArticles = function () {
-    return [newarticle];
-  }
-  list = new List (articlegetter);
+  list = setUpCreateList();
 
-  var actual = list.returnArticles()[0].returnText()
-  assert.isTrue(actual === "News Story</br>http://url")
+  var actual = list.returnArticles()[0].returnTitle()
+  assert.isTrue(actual === "News Story")
 }
 
 testListsArticles();

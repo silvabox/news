@@ -1,10 +1,5 @@
 function textArticleListViewReturnsSingle() {
-  articlegetter = new ArticleGetter();
-  newarticle = new Article ('News Story', "http://url")
-  articlegetter.getArticles = function () {
-    return [newarticle];
-  }
-  list = new List (articlegetter);
+  list = setUpCreateList();
   var articleListView = new ArticleListView();
 
 
@@ -15,7 +10,8 @@ function textArticleListViewReturnsSingle() {
   // note.id = 2;
 
   var actual = articleListView.renderAll(list);
-  var expected = '<ul><li><div>News Story</br>http://url</div></li></ul>';
+
+  var expected = '<ul><li><a href="/article/4"><div>News Story</div></a></li></ul>';
 
   assert.isTrue(actual === expected);
 }
@@ -37,7 +33,7 @@ function testArticleListViewReturnsMultiple() {
   // note.id = 2;
 
   var actual = articleListView.renderAll(list);
-  var expected = '<ul><li><div>News Story</br>http://url</div></li><li><div>News Story</br>http://url</div></li></ul>';
+  var expected = '<ul><li><a href="/article/5"><div>News Story</div></a></li><li><a href="/article/6"><div>News Story</div></a></li></ul>';
 
   assert.isTrue(actual === expected);
 }

@@ -10,7 +10,7 @@
 
   function addListDivAndJoin(articlesArray) {
     return articlesArray.map(function(article) {
-      return '<li><div>' + article.returnText() + "</div></li>";
+      return '<li><a href="#article/' + article.id + '"><div>' + article.returnTitle() + "</div></a></li>";
     }).join("");
   };
 

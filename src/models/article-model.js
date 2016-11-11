@@ -1,20 +1,20 @@
 (function(exports) {
- function Article(title, articleUrl){
+ function Article(title, articleUrl, apiUrl, pubDate, articleBody){
+   Article.numInstances = (Article.numInstances || 0) + 1;
+   this.id = Article.numInstances
    this.title = title;
+   this.apiUrl = apiUrl.replace(/s/, "")
    this.articleUrl = articleUrl;
+   this.pubDate = pubDate;
+   this.articleBody = articleBody;
  };
 
- Article.prototype.returnText = function () {
-   return this.title + "</br>" + this.articleUrl
+ Article.prototype.returnTitle = function () {
+   return this.title;
  };
 
- Article.prototype.summarizeBody = function () {
-   var xhr = new XMLHttpRequest();
-   aylienUrl = "http://news-summary-api.herokuapp.com/aylien?apiRequestUrl=https://api.aylien.com/api/v1/summarize?url=" + this.articleUrl
-   xhr.open("GET", aylienUrl, true);
-   xhr.send();
-   summaryObject = JSON.parse(xhr.response)
-   return summaryObject.sentences
+ Article.prototype.returnArticleBody = function () {
+    return this.articleBody
  };
 
  exports.Article = Article;
