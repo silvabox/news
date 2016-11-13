@@ -13,22 +13,28 @@
  };
 
  Article.prototype.returnArticleBody = function () {
-   var articleBody;
-   var xhttp = new XMLHttpRequest();
-   aylienUrl = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=" + this.apiUrl + "?show-fields=body";
-   console.log(aylienUrl)
-   xhttp.onreadystatechange = function() {
-     if (this.readyState == 4 && this.status == 200) {
-       // Action to be performed when the document is read;
-       summaryObject = JSON.parse(xhttp.response);
-       console.log(xhttp.response)
-       articleBody = summaryObject.response.content.fields.body
-       return articleBody;
-     }
-   };
-   xhttp.open("GET", aylienUrl, false);
-   xhttp.send();
-   return articleBody;
+   if (this.articleBody) {
+     console.log("have it saved mate")
+     return this.articleBody
+   }
+   else {
+     console.log("requesting it!")
+     var articleBody;
+     var xhttp = new XMLHttpRequest();
+     aylienUrl = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=" + this.apiUrl + "?show-fields=body";
+     xhttp.onreadystatechange = function() {
+       if (this.readyState == 4 && this.status == 200) {
+         // Action to be performed when the document is read;
+         summaryObject = JSON.parse(xhttp.response);
+         articleBody = summaryObject.response.content.fields.body
+         return articleBody;
+       }
+     };
+     xhttp.open("GET", aylienUrl, false);
+     xhttp.send();
+     this.articleBody = articleBody;
+     return this.articleBody
+   }
  };
 
  exports.Article = Article;
