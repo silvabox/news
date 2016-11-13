@@ -5,7 +5,7 @@
 
   ArticleListView.prototype.renderAll = function(list) {
     articlesArray = list.returnArticles();
-    return addULTags(addListDivAndJoin(articlesArray));
+    return addContainer(addULTags(addListDivAndJoin(articlesArray)));
   }
 
   function addListDivAndJoin(articlesArray) {
@@ -16,6 +16,10 @@
 
   function addULTags(list) {
     return "<ul>" + list + "</ul>";
+  }
+
+  function addContainer(list) {
+    return "<container>" + list + "</container>"
   }
 
 

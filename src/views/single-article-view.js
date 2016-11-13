@@ -5,12 +5,11 @@
   }
 
   SingleArticleView.prototype.renderArticle = function() {
-    console.log("singleArtView = " + this.article.articleBody)
-    return "<div>" + this.article.title + "</div>" + "<div>" + this.article.returnArticleBody() + "</div>";
+    return '<div class="article-title">' + this.article.title + "</div>" + '<div class="article-body">' + this.article.returnArticleBody() + "</div>";
   };
 
   SingleArticleView.prototype.addReturnLink = function() {
-    return '<a href="/" id="back_to_articles">Back to All Articles</a></br>';
+    return '<div class="button"><a href="/" id="back_to_articles">Back to All Articles</a></div>';
   };
 
   exports.SingleArticleView = SingleArticleView;

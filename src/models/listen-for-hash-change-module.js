@@ -13,7 +13,6 @@
 
   function showArticle(article_id) {
     var article = this.list.findArticleById(parseInt(article_id));
-    console.log(article)
     var singleArticleView = new SingleArticleView(article);
     document.getElementById("app").innerHTML = singleArticleView.addReturnLink() + singleArticleView.renderArticle();
     listenForBackToAllArticles();
